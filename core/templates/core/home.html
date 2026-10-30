@@ -1,0 +1,59 @@
+{% extends "restaurant/base.html" %}
+{% block title %}Главная | Ресторан{% endblock %}
+
+{% block content %}
+<section class="hero text-center mt-3">
+    <h1 class="display-5 fw-bold">Добро пожаловать в наш ресторан!</h1>
+    <p class="lead mt-3 mb-0">
+        Вкусные блюда, свежие продукты и уютная атмосфера.
+    </p>
+    <a href="/menu/" class="btn btn-light btn-lg mt-4">
+        Посмотреть меню
+    </a>
+</section>
+
+<div class="row g-4 mt-4">
+    <div class="col-md-4">
+        <div class="card food-card text-center">
+            <div class="card-body">
+                <div class="display-5 mb-3">🍽️</div>
+                <h2 class="h4">Наше меню</h2>
+                <p class="text-secondary">
+                    Познакомьтесь с блюдами и выберите то, что вам нравится.
+                </p>
+                <a href="/menu/" class="btn btn-outline-success">
+                    Посмотреть меню
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card food-card text-center">
+            <div class="card-body">
+                <div class="display-5 mb-3">🪑</div>
+                <h2 class="h4">Столики</h2>
+                <p class="text-secondary">
+                    Выберите столик и оформите заказ в несколько простых шагов.
+                </p>
+                <a href="/orders/create/" class="btn btn-outline-success">
+                    Оформить заказ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card food-card text-center">
+            <div class="card-body">
+                <div class="display-5 mb-3">🌿</div>
+                <h2 class="h4">О нашем ресторане</h2>
+                <p class="text-secondary">
+                    Мы ценим качество продуктов, вкусную еду и уютную атмосферу.
+                </p>
+                <span class="text-success fw-semibold">Вкусно. Уютно. С душой.</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

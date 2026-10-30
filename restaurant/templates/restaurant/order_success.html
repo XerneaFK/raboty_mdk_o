@@ -1,0 +1,23 @@
+{% extends "restaurant/base.html" %}
+{% block title %}Заказ создан | Ресторан{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-7">
+        <div class="card food-card text-center">
+            <div class="card-body p-4 p-md-5">
+                <div class="display-3 mb-3">✓</div>
+                <h1 class="fw-bold">Заказ создан!</h1>
+                <p class="text-secondary">Ваш заказ успешно сохранён.</p>
+                <div class="bg-light rounded-3 p-3 my-4 text-start">
+                    <p class="mb-2"><strong>Номер заказа:</strong> {{ order.id }}</p>
+                    <p class="mb-2"><strong>Столик:</strong> №{{ order.table.number }}</p>
+                    <p class="mb-2"><strong>Сумма:</strong> {{ order.total }} ₽</p>
+                    <p class="mb-0"><strong>Статус:</strong> {{ order.status }}</p>
+                </div>
+                <a href="/menu/" class="btn btn-success">Вернуться в меню</a>
+                <a href="/" class="btn btn-outline-secondary">На главную</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

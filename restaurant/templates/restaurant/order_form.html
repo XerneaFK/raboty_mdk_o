@@ -1,0 +1,46 @@
+{% extends "restaurant/base.html" %}
+{% block title %}Новый заказ | Ресторан{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-3">
+    <div class="col-lg-7">
+        <div class="card food-card">
+            <div class="card-body p-4 p-md-5">
+                <h1 class="fw-bold mb-2">Оформление заказа</h1>
+                <p class="text-secondary mb-4">Выберите свободный столик и блюдо.</p>
+                {% if tables and dishes %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="table" class="form-label">Столик</label>
+                        <select id="table" name="table" class="form-select" required>
+                            {% for table in tables %}
+                            <option value="{{ table.pk }}">Столик №{{ table.number }} ({{ table.seats }} мест)</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dish" class="form-label">Блюдо</label>
+                        <select id="dish" name="dish" class="form-select" required>
+                            {% for dish in dishes %}
+                            <option value="{{ dish.pk }}">{{ dish.name }} — {{ dish.price }} ₽</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="quantity" class="form-label">Количество</label>
+                        <input id="quantity" type="number" name="quantity" class="form-control" min="1" value="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg w-100">Создать заказ</button>
+                </form>
+                {% else %}
+                <div class="alert alert-warning">
+                    {% if not tables %}Сейчас нет свободных столиков.{% endif %}
+                    {% if not dishes %}В меню пока нет блюд.{% endif %}
+                </div>
+                {% endif %}
+                <a href="/menu/" class="btn btn-link px-0 mt-3">Вернуться в меню</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

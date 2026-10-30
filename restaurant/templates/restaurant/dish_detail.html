@@ -1,0 +1,21 @@
+{% extends "restaurant/base.html" %}
+{% block title %}{{ dish.name }} | Ресторан{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-3">
+    <div class="col-lg-8">
+        <div class="card food-card">
+            <div class="card-body p-4 p-md-5">
+                <span class="badge text-bg-success mb-3">{{ dish.category.name }}</span>
+                <h1 class="fw-bold">{{ dish.name }}</h1>
+                <p class="text-secondary mt-3">{{ dish.description|default:"Описание скоро появится." }}</p>
+                <div class="d-flex flex-wrap gap-4 my-4">
+                    <div><div class="small text-secondary">Вес</div><strong>{{ dish.weight }} г</strong></div>
+                    <div><div class="small text-secondary">Стоимость</div><strong class="fs-4">{{ dish.price }} ₽</strong></div>
+                </div>
+                <a href="/menu/" class="btn btn-outline-secondary">Назад в меню</a>
+                <a href="/orders/create/" class="btn btn-success ms-1">Оформить заказ</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
